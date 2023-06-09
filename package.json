@@ -13,11 +13,17 @@
     "sap-hdbext-promisfied": "^2.202108.1"
   },
   "devDependencies": {
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.108.7",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0",
     "sqlite3": "^5.1.6"
   },
   "scripts": {
     "start": "cds-serve",
-    "build": "cds build/all --clean;cp gen/srv/srv/csn.json srv/gen/;cp -r gen/db/src/gen db/src"
+    "build": "cds build/all --clean;cp gen/srv/srv/csn.json srv/gen/;cp -r gen/db/src/gen db/src",
+    "watch-hanasapbtpv2": "cds watch --open hanasapbtpv2/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-hanasapbtp": "cds watch --open hanasapbtp/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "hana": {
@@ -28,5 +34,11 @@
         "kind": "hana"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/hanasapbtpv2",
+    "app/hanasapbtpv2",
+    "app/hanasapbtp",
+    "app/hanasapbtp"
+  ]
 }
