@@ -32,6 +32,30 @@ modules:
     requires:
       - name: HanaSAPBTPV2-db
 
+  - name: HanaSAPBTPV2-approuter
+    type: nodejs
+    path: approuter
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: true
+          name: srv-binding
+          url: '~{srv-url}'
+    build-parameters:
+          requires:
+            - name: HanaSAPBTPV2-app
+              artifacts:
+                - ./*
+              target-path: resources  
+
+  - name: HanaSAPBTPV2-app
+    type: html5
+    path: app
+    build-parameters:
+      supported-platforms: []
+
 resources:
   - name: HanaSAPBTPV2-db
     type: com.sap.xs.hdi-container
